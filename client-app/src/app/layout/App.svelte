@@ -1,18 +1,16 @@
 <script>
   import axios from "axios";
-  import { Button } from 'sveltestrap';
+  import NavBar from "./NavBar.svelte";
 
   let activities = [];
   axios.get('http://localhost:5000/api/activities').then(response =>{
     activities = response.data;
-    console.log(response.data)
   }, [])
 </script>
 
 <main>
-  <Button color="primary">test</Button>
-  <h1>Reactivities</h1>
-  <ul>
+  <NavBar></NavBar>
+  <ul >
     {#each activities as activity}
       <li>
         <p>
