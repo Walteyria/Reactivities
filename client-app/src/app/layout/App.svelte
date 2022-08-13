@@ -1,6 +1,7 @@
 <script>
   import axios from "axios";
   import NavBar from "./NavBar.svelte";
+  import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard.svelte";
 
   let activities = [];
   axios.get('http://localhost:5000/api/activities').then(response =>{
@@ -9,14 +10,8 @@
 </script>
 
 <main>
-  <NavBar></NavBar>
-  <ul >
-    {#each activities as activity}
-      <li>
-        <p>
-          {activity.title}
-        </p>
-      </li>
-    {/each}
-  </ul>
+  <NavBar/>
+  <div class="container-sm">
+    <ActivityDashboard activities={activities}/>
+  </div>
 </main>
