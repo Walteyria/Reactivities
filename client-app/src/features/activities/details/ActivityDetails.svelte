@@ -3,7 +3,7 @@
     export let activity;
 </script>
 
-<Card>
+<Card class="mb-4">
     <CardHeader class="p-0">
         <img class="w-100 rounded-top" src="/categoryImages/{activity.category}.jpg" alt="Category image"/>
         <CardTitle class="pt-3 px-4 font-weight-bold">{activity.title}</CardTitle>
