@@ -14,7 +14,7 @@
         <div class="row px-3 pt-3">
             <ButtonGroup class="w-100">
                 <Button outline class="col-6" color="primary">Edit</Button>
-                <Button outline class="col-6" color="secondary">Cancel</Button>
+                <Button on:click outline class="col-6" color="secondary">Cancel</Button>
             </ButtonGroup>
         </div>
     </CardBody>

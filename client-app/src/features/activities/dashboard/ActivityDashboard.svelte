@@ -6,6 +6,10 @@
 
     export let activities;
     let selectedActivity;
+
+    function cancelDetailClicked() {
+        selectedActivity = undefined;
+    }
 </script>
 <Row>
     <Col class="col-7">
@@ -13,7 +17,7 @@
     </Col>
     <Col class="col-5">
         {#if selectedActivity}
-            <ActivityDetails activity={selectedActivity}/>
+            <ActivityDetails on:click={cancelDetailClicked} activity={selectedActivity}/>
         {/if}
         <ActivityForm/>
     </Col>
