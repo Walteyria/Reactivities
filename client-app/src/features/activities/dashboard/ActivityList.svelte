@@ -9,7 +9,7 @@
     }
 </script>
 
-{#each activities as activity, index (activity)}
+{#each activities as activity}
     <Card class="mb-3">
         <CardHeader>
             <div class="row">

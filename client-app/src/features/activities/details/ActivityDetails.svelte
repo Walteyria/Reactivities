@@ -1,5 +1,5 @@
 <script>
-    import {Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, CardTitle} from "sveltestrap";
+    import {Button, ButtonGroup, Card, CardBody, CardHeader, CardTitle} from "sveltestrap";
     export let activity;
 </script>
 
