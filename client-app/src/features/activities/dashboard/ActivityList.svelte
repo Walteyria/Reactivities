@@ -1,9 +1,15 @@
 <script>
-    import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge, Styles} from "sveltestrap";
+    import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge} from "sveltestrap";
     export let activities;
+    export let selectedActivity = undefined;
+
+    function viewDetailClick(id) {
+        selectedActivity=activities.find(x => x.id === id);
+        console.log(selectedActivity);
+    }
 </script>
 
-{#each activities as activity}
+{#each activities as activity, index (activity)}
     <Card class="mb-3">
         <CardHeader>
             <div class="row">
@@ -11,7 +17,7 @@
                     <CardTitle class="font-weight-bold">{activity.title}</CardTitle>
                 </div>
                 <div class="col text-right">
-                    <Button color="primary">View</Button>
+                    <Button on:click={() => viewDetailClick(activity.id)} color="primary">View</Button>
                 </div>
             </div>
         </CardHeader>

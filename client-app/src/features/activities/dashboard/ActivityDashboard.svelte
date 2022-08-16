@@ -5,14 +5,15 @@
     import ActivityForm from "../form/ActivityForm.svelte";
 
     export let activities;
+    let selectedActivity;
 </script>
 <Row>
     <Col class="col-7">
-        <ActivityList activities={activities}/>
+        <ActivityList bind:selectedActivity={selectedActivity} activities={activities}/>
     </Col>
     <Col class="col-5">
-        {#if activities[0]}
-            <ActivityDetails activity={activities[0]}/>
+        {#if selectedActivity}
+            <ActivityDetails activity={selectedActivity}/>
         {/if}
         <ActivityForm/>
     </Col>
