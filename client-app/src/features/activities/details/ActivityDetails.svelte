@@ -1,9 +1,12 @@
 <script>
     import {Button, ButtonGroup, Card, CardBody, CardHeader, CardTitle} from "sveltestrap";
-    import {selectedActivity} from "../../../app/layout/stores/ActivityStores.js";
+    import {activityEditMode, selectedActivity} from "../../../app/layout/stores/ActivityStores.js";
 
     function cancelDetailClicked() {
         $selectedActivity = undefined;
+    }
+    function editDetailClicked() {
+        activityEditMode.set(true);
     }
 </script>
 
@@ -17,7 +20,7 @@
         <p>{$selectedActivity.description}</p>
         <div class="row px-3 pt-3">
             <ButtonGroup class="w-100">
-                <Button outline class="col-6" color="primary">Edit</Button>
+                <Button on:click={editDetailClicked} outline class="col-6" color="primary">Edit</Button>
                 <Button on:click={cancelDetailClicked} outline class="col-6" color="secondary">Cancel</Button>
             </ButtonGroup>
         </div>

@@ -1,5 +1,10 @@
 <script>
     import {Button, Card, Form, Input} from "sveltestrap";
+    import {activityEditMode} from "../../../app/layout/stores/ActivityStores.js";
+    
+    function cancelFormClicked(){
+        activityEditMode.set(false);
+    }
 </script>
 
 <Card>
@@ -11,7 +16,7 @@
         <Input class="my-2" placeholder="City"/>
         <Input class="my-2" placeholder="Venue"/>
         <div class="col text-right pr-0">
-            <Button class="mr-1" color="secondary" type="submit">Cancel</Button>
+            <Button on:click={cancelFormClicked} class="mr-1" color="secondary" type="submit">Cancel</Button>
             <Button class="ml-1" color="success" type="submit">Submit</Button>
         </div>
     </Form>

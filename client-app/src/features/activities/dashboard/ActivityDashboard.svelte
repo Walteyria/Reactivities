@@ -3,7 +3,7 @@
     import {Col, Row} from "sveltestrap";
     import ActivityDetails from "../details/ActivityDetails.svelte";
     import ActivityForm from "../form/ActivityForm.svelte";
-    import {selectedActivity} from "../../../app/layout/stores/ActivityStores.js";
+    import {selectedActivity, activityEditMode} from "../../../app/layout/stores/ActivityStores.js";
 
     export let activities;
 </script>
@@ -12,10 +12,12 @@
         <ActivityList activities={activities}/>
     </Col>
     <Col class="col-5">
-        {#if $selectedActivity}
+        {#if $selectedActivity && $activityEditMode === false}
             <ActivityDetails/>
         {/if}
-        <ActivityForm/>
+        {#if $activityEditMode}
+            <ActivityForm/>
+        {/if}
     </Col>
 </Row>
 

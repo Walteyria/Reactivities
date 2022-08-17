@@ -1,5 +1,11 @@
 <script lang="ts">
     import {Navbar, NavbarBrand, NavItem, Button, Nav, NavLink} from 'sveltestrap';
+    import {activityEditMode, selectedActivity} from "./stores/ActivityStores.js";
+    
+    function createActivityButtonClicked(){
+        activityEditMode.set(true);
+        $selectedActivity = undefined;
+    }
 </script>
 
 <Navbar dark color="primary" expand="md" fixed="top">
@@ -12,7 +18,7 @@
             <NavLink class="text-white" href="/">Activities</NavLink>
         </NavItem>
         <NavItem>
-            <Button outline color="success">Create Activity</Button>
+            <Button on:click={createActivityButtonClicked} outline color="success">Create Activity</Button>
         </NavItem>
     </Nav>
 </Navbar>
