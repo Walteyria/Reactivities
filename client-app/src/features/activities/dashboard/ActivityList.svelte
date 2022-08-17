@@ -1,11 +1,10 @@
 <script>
     import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge} from "sveltestrap";
+    import {setSelectedActivity} from "../../../app/layout/stores/ActivityStores.js";
     export let activities;
-    export let selectedActivity = undefined;
 
     function viewDetailClick(id) {
-        selectedActivity=activities.find(x => x.id === id);
-        console.log(selectedActivity);
+        setSelectedActivity(activities.find(x => x.id === id));
     }
 </script>
 
