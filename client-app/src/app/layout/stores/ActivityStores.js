@@ -23,6 +23,7 @@ export function setSelectedActivity(activity){
     })
 }
 
-
 export const activityEditMode = writable(false);
+
+export const activitiesList = writable([]);
 
