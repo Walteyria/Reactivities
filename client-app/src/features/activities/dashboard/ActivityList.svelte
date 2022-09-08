@@ -1,9 +1,14 @@
 <script>
     import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge} from "sveltestrap";
-    import {setSelectedActivity, activitiesList} from "../../../app/layout/stores/ActivityStores.js";
+    import {setSelectedActivity, activitiesList, activityEditMode} from "../../../app/layout/stores/ActivityStores.js";
+    import {v4 as uuidv4} from "uuid";
 
     function viewDetailClick(id) {
         setSelectedActivity($activitiesList.find(x => x.id === id));
+    }
+
+    function deleteActivity(id){
+        $activitiesList = [...$activitiesList.filter(x => x.id !== id)];
     }
 </script>
 
@@ -15,6 +20,7 @@
                     <CardTitle class="font-weight-bold">{activity.title}</CardTitle>
                 </div>
                 <div class="col text-right">
+                    <Button on:click={() => deleteActivity(activity.id)} color="danger">Delete</Button>
                     <Button on:click={() => viewDetailClick(activity.id)} color="primary">View</Button>
                 </div>
             </div>

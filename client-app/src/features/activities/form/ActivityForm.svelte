@@ -1,6 +1,11 @@
 <script>
     import {Button, Card, Form, Input} from "sveltestrap";
-    import {activityEditMode, selectedActivity} from "../../../app/layout/stores/ActivityStores.js";
+    import {
+        activityEditMode,
+        selectedActivity,
+        setSelectedActivity,
+        activitiesList
+    } from "../../../app/layout/stores/ActivityStores.js";
     import { v4 as uuidv4 } from 'uuid';
     
     let activityForm = {
@@ -34,7 +39,6 @@
     }
     
     function submitFormClicked(){
-        console.log(activityForm);
         if (activityForm.id)
             updateActivity(activityForm);
         else
@@ -42,11 +46,14 @@
     }
     
     function updateActivity(activity){
-        
+        $activitiesList = [...$activitiesList.filter(x => x.id !== activity.id),activity];
     }
     
     function createActivity(activity){
         activity.id = uuidv4();
+        activityEditMode.set(false);
+        setSelectedActivity(activity);
+        $activitiesList = [...$activitiesList,activity];
     }
 </script>
 
