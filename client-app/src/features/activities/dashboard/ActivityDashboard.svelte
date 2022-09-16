@@ -3,7 +3,7 @@
     import {Col, Row} from "sveltestrap";
     import ActivityDetails from "../details/ActivityDetails.svelte";
     import ActivityForm from "../form/ActivityForm.svelte";
-    import {selectedActivity, activityEditMode} from "../../../app/layout/stores/ActivityStores.js";
+    import {selectedActivity, activityEditMode} from "../../../app/stores/ActivityStores.js";
 </script>
 <Row>
     <Col class="col-7">

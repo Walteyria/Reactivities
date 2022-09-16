@@ -1,6 +1,6 @@
 <script>
     import {Button, ButtonGroup, Card, CardBody, CardHeader, CardTitle} from "sveltestrap";
-    import {activityEditMode, selectedActivity} from "../../../app/layout/stores/ActivityStores.js";
+    import {activityEditMode, selectedActivity} from "../../../app/stores/ActivityStores.js";
 
     function cancelDetailClicked() {
         $selectedActivity = undefined;

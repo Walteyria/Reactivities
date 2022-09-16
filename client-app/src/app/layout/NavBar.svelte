@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Navbar, NavbarBrand, NavItem, Button, Nav, NavLink} from 'sveltestrap';
-    import {activityEditMode, selectedActivity} from "./stores/ActivityStores.js";
+    import {activityEditMode, selectedActivity} from "../stores/ActivityStores.js";
     
     function createActivityButtonClicked(){
         activityEditMode.set(true);

@@ -1,14 +1,17 @@
 <script>
     import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge} from "sveltestrap";
-    import {setSelectedActivity, activitiesList, activityEditMode} from "../../../app/layout/stores/ActivityStores.js";
-    import {v4 as uuidv4} from "uuid";
+    import {setSelectedActivity, activitiesList, activityEditMode} from "../../../app/stores/ActivityStores.js";
+    import LoadingComponent from "../../../app/layout/LoadingComponent.svelte";
+    import agent from "../../../app/api/agent.js";
 
     function viewDetailClick(id) {
         setSelectedActivity($activitiesList.find(x => x.id === id));
     }
 
     function deleteActivity(id){
-        $activitiesList = [...$activitiesList.filter(x => x.id !== id)];
+        agent.Activities.delete(id).then(() => {
+            $activitiesList = [...$activitiesList.filter(x => x.id !== id)];
+        });
     }
 </script>
 
@@ -36,6 +39,8 @@
             </CardText>
         </CardBody>
     </Card>
+{:else}
+    <LoadingComponent/>
 {/each}
 
 <style>
