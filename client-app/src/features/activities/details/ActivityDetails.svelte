@@ -16,7 +16,7 @@
         <CardTitle class="pt-3 px-4 font-weight-bold">{$selectedActivity.title}</CardTitle>
     </CardHeader>
     <CardBody>
-        <p class="text-secondary">{$selectedActivity.title}</p>
+        <p class="text-secondary">{$selectedActivity.date}</p>
         <p>{$selectedActivity.description}</p>
         <div class="row px-3 pt-3">
             <ButtonGroup class="w-100">
