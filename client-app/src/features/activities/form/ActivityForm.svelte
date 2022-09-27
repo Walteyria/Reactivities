@@ -62,6 +62,8 @@
             $activitiesList = [...$activitiesList,activity];
         });
     }
+
+    export let location;
 </script>
 
 <Card>

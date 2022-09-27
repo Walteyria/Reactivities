@@ -1,19 +1,19 @@
 <script>
+  import { Router, Route } from "svelte-routing";
+  import HomePage from "../../features/home/HomePage.svelte";
+  import ActivityForm from "../../features/activities/form/ActivityForm.svelte";
   import NavBar from "./NavBar.svelte";
   import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard.svelte";
-  import {activitiesList} from "../stores/ActivityStores.js";
-  import agent from "../api/agent.js";
-
-  let activities = [];
-  agent.Activities.list().then(response =>{
-    activities = response;
-  }, [])
-  $:activitiesList.set(activities)
+  export let url = undefined;
 </script>
 
 <main>
   <NavBar/>
   <div class="container-sm">
-    <ActivityDashboard/>
+    <Router url={url}>
+      <Route path="/" component={HomePage} />
+      <Route path="/activities" component={ActivityDashboard} />
+      <Route path="/createActivity" component={ActivityForm} />
+    </Router>
   </div>
 </main>
