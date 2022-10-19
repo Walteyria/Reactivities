@@ -1,6 +1,5 @@
 <script lang="ts">
     import {Navbar, NavbarBrand, NavItem, Button, Nav, NavLink} from 'sveltestrap';
-    import {activityEditMode, selectedActivity} from "../stores/ActivityStores.js";
     import {Link, Router} from "svelte-routing";
     
     

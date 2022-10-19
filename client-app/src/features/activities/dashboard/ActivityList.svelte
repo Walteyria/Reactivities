@@ -1,13 +1,9 @@
 <script>
     import {Card, CardBody, CardHeader, CardTitle, Button, CardText, Badge} from "sveltestrap";
-    import {setSelectedActivity, activitiesList, activityEditMode} from "../../../app/stores/ActivityStores.js";
+    import {activitiesList} from "../../../app/stores/ActivityStores.js";
     import LoadingComponent from "../../../app/layout/LoadingComponent.svelte";
     import agent from "../../../app/api/agent.js";
     import {Link, Router} from "svelte-routing";
-
-    function viewDetailClick(id) {
-        setSelectedActivity($activitiesList.find(x => x.id === id));
-    }
 
     function deleteActivity(id){
         agent.Activities.delete(id).then(() => {

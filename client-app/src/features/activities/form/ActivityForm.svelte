@@ -1,7 +1,6 @@
 <script>
     import {Button, Card, Input} from "sveltestrap";
     import {
-        activityEditMode,
         selectedActivity,
         setSelectedActivity,
         activitiesList

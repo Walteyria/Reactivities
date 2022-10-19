@@ -2,7 +2,6 @@
     import {Button, ButtonGroup, Card, CardBody, CardHeader, CardTitle} from "sveltestrap";
     import {
         activitiesList,
-        activityEditMode,
         selectedActivity,
         setSelectedActivity
     } from "../../../app/stores/ActivityStores.js";
