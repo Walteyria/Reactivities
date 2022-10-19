@@ -3,6 +3,7 @@
     import {setSelectedActivity, activitiesList, activityEditMode} from "../../../app/stores/ActivityStores.js";
     import LoadingComponent from "../../../app/layout/LoadingComponent.svelte";
     import agent from "../../../app/api/agent.js";
+    import {Link, Router} from "svelte-routing";
 
     function viewDetailClick(id) {
         setSelectedActivity($activitiesList.find(x => x.id === id));
@@ -24,7 +25,11 @@
                 </div>
                 <div class="col text-right">
                     <Button on:click={() => deleteActivity(activity.id)} color="danger">Delete</Button>
-                    <Button on:click={() => viewDetailClick(activity.id)} color="primary">View</Button>
+                    <Router>
+                        <Link to="/activities/{activity.id}">
+                            <Button color="primary">View</Button>
+                        </Link>
+                    </Router>
                 </div>
             </div>
         </CardHeader>

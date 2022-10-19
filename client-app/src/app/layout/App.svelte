@@ -4,6 +4,7 @@
   import ActivityForm from "../../features/activities/form/ActivityForm.svelte";
   import NavBar from "./NavBar.svelte";
   import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard.svelte";
+  import ActivityDetails from "../../features/activities/details/ActivityDetails.svelte";
 </script>
 
 <main>
@@ -12,7 +13,9 @@
     <Router>
       <Route path="/" component={HomePage} />
       <Route path="/activities" component={ActivityDashboard} />
+      <Route path="/activities/:id" component={ActivityDetails} />
       <Route path="/createActivity" component={ActivityForm} />
+      <Route path="/manage/:id" component={ActivityForm} />
     </Router>
   </div>
 </main>

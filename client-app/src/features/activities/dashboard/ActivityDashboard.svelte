@@ -19,12 +19,7 @@
         <ActivityList/>
     </Col>
     <Col class="col-5">
-        {#if $selectedActivity && $activityEditMode === false}
-            <ActivityDetails/>
-        {/if}
-        {#if $activityEditMode}
-            <ActivityForm/>
-        {/if}
+        <h1>Filter</h1>
     </Col>
 </Row>
 

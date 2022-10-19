@@ -8,6 +8,9 @@
     } from "../../../app/stores/ActivityStores.js";
     import { v4 as uuidv4 } from 'uuid';
     import agent from "../../../app/api/agent.js";
+    import { navigate } from "svelte-routing";
+
+    export let id;
     
     let activityForm = {
         id: "",
@@ -29,14 +32,28 @@
         activityForm.city = "";
         activityForm.venue = "";
     }
+
+    if(id){
+        if($activitiesList.length >= 1)
+            setSelectedActivity($activitiesList.find(x => x.id === id));
+        else {
+            agent.Activities.details(id).then(response =>{
+                if (response)
+                    setSelectedActivity(response);
+            });
+        }
+    }
+    else 
+        $selectedActivity = undefined;
     
     $:if ($selectedActivity)
         activityForm = $selectedActivity;
     else
         setActivityEmptyForCreate();
+        
 
     function cancelFormClicked(){
-        activityEditMode.set(false);
+        
     }
     
     function submitFormClicked(){
@@ -47,20 +64,20 @@
     }
     
     function updateActivity(activity){
-        activityEditMode.set(false);
         setSelectedActivity(activity);
         agent.Activities.update(activity).then(() => {
             $activitiesList = [...$activitiesList.filter(x => x.id !== activity.id),activity];
         });
+        navigate("/activities/"+activity.id);
     }
-    
+     
     function createActivity(activity){
         activity.id = uuidv4();
-        activityEditMode.set(false);
         setSelectedActivity(activity);
         agent.Activities.create(activity).then(() => {
             $activitiesList = [...$activitiesList,activity];
         });
+        navigate("/activities/"+activity.id);
     }
 
     export let location;

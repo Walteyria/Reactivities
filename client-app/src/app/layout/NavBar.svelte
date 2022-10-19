@@ -4,10 +4,6 @@
     import {Link, Router} from "svelte-routing";
     
     
-    function createActivityButtonClicked(){
-        activityEditMode.set(true);
-        $selectedActivity = undefined;
-    }
     
 </script>
 
