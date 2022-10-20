@@ -12,10 +12,11 @@
 
     export let location;
     export let id;
-    
+
     $:if(id){
-        if($activitiesList.length >= 1)
-            setSelectedActivity($activitiesList.find(x => x.id === id));
+        let activity = $activitiesList.find(x => x.id === id)
+        if($activitiesList.length >= 1 && activity)
+            setSelectedActivity(activity);
         else {
             agent.Activities.details(id).then(response =>{
                 if (response)

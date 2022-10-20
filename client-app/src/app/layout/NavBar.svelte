@@ -1,9 +1,6 @@
 <script lang="ts">
     import {Navbar, NavbarBrand, NavItem, Button, Nav, NavLink} from 'sveltestrap';
     import {Link, Router} from "svelte-routing";
-    
-    
-    
 </script>
 
 <Navbar dark color="primary" expand="md" fixed="top">

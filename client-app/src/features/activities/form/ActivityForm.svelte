@@ -63,7 +63,6 @@
     }
     
     function updateActivity(activity){
-        setSelectedActivity(activity);
         agent.Activities.update(activity).then(() => {
             $activitiesList = [...$activitiesList.filter(x => x.id !== activity.id),activity];
         });
@@ -72,7 +71,6 @@
      
     function createActivity(activity){
         activity.id = uuidv4();
-        setSelectedActivity(activity);
         agent.Activities.create(activity).then(() => {
             $activitiesList = [...$activitiesList,activity];
         });
