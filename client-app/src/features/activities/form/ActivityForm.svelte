@@ -9,7 +9,7 @@
     import agent from "../../../app/api/agent.js";
     import { navigate } from "svelte-routing";
 
-    export let id;
+    export let id = "";
     
     let activityForm = {
         id: "",
@@ -52,7 +52,7 @@
         
 
     function cancelFormClicked(){
-        
+        navigate("/activities");
     }
     
     function submitFormClicked(){
