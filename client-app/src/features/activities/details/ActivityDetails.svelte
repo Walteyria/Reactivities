@@ -28,7 +28,7 @@
 </script>
 
 {#if $selectedActivity !== undefined}
-    <Card class="mb-4">
+    <Card class="col-md-8 offset-md-2 p-0">
         <CardHeader class="p-0">
             <img class="w-100 rounded-top" src="/categoryImages/{$selectedActivity.category}.jpg" alt="Category image"/>
             <CardTitle class="pt-3 px-4 font-weight-bold">{$selectedActivity.title}</CardTitle>
