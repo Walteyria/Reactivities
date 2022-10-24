@@ -80,7 +80,7 @@
     export let location;
 </script>
 
-<Card>
+<Card class="col-md-8 offset-md-2 p-0">
     <form class="p-2" on:submit|preventDefault={submitFormClicked}>
         <Input class="my-2" placeholder="Title" bind:value={activityForm.title}/>
         <Input class="my-2" placeholder="Description" type="textarea" bind:value={activityForm.description}/>
