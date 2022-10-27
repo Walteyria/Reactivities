@@ -19,6 +19,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 //FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<Create>();
+builder.Services.AddValidatorsFromAssemblyContaining<Edit>();
 
 // var app = builder.Build();
 // using (var scope = app.Services.CreateScope())
