@@ -28,12 +28,12 @@ public class ActivitiesController : BaseApiController
     public async Task<IActionResult> EditActivity(Guid id, Activity activity, CancellationToken ct)
     {
         activity.Id = id;
-        return Ok(await Mediator!.Send(new Edit.Command{Activity = activity}, ct));
+        return HandleResult(await Mediator!.Send(new Edit.Command{Activity = activity}, ct));
     }
 
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteActivity(Guid id, CancellationToken ct)
     {
-        return Ok(await Mediator!.Send(new Delete.Command {Id = id}, ct));
+        return HandleResult(await Mediator!.Send(new Delete.Command {Id = id}, ct));
     }
 }
