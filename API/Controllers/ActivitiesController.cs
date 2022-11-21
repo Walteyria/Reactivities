@@ -21,7 +21,7 @@ public class ActivitiesController : BaseApiController
     [HttpPost]
     public async Task<IActionResult> CreateActivity(Activity activity, CancellationToken ct)
     {
-        return Ok(await Mediator!.Send(new Create.Command{Activity = activity}, ct));
+        return HandleResult(await Mediator!.Send(new Create.Command{Activity = activity}, ct));
     }
 
     [HttpPut("{id:guid}")]
