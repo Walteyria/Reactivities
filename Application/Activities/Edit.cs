@@ -37,7 +37,7 @@ public class Edit
         {
             var activity = await _context.Activities.FindAsync(new object?[] { request.Activity!.Id }, cancellationToken: cancellationToken);
             if (activity == null)
-                return null;
+                return null!;
             _mapper.Map(request.Activity,activity);
             var result = await _context.SaveChangesAsync(cancellationToken) > 0;
             return !result ? Result<Unit>.Failure("failed to update the activity") : Result<Unit>.Succes(Unit.Value);

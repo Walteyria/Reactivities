@@ -4,9 +4,9 @@ public class Result<T>
 {
     public bool IsSucces { get; set; }
 
-    public T Value { get; set; }
+    public T? Value { get; set; }
 
-    public string Error { get; set; }
+    private string? Error { get; set; }
 
     public static Result<T> Succes(T value) => new Result<T>()
     {

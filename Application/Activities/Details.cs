@@ -24,7 +24,7 @@ public class Details
         public async Task<Result<Activity>> Handle(Query request, CancellationToken cancellationToken)
         {
             var activity = await _context.Activities.FindAsync(new object?[] {request.Id}, cancellationToken: cancellationToken);
-            return Result<Activity>.Succes(activity);
+            return Result<Activity>.Succes(activity!);
         }
     }
 }
